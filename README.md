@@ -11,6 +11,7 @@ So far only the `RecursiveCharacterTextSplitter` is implemented. PRs for others 
 ---
 
 - [Quick start](#quick-start)
+- [Usage](#usage)
 - [Support](#support)
 - [License](#license)
 - [Contribution guide](#contribution-guide)
