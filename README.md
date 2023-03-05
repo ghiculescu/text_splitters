@@ -4,7 +4,9 @@
 [![CI](https://github.com/ghiculescu/text_splitters/actions/workflows/ci.yml/badge.svg)](https://github.com/ghiculescu/text_splitters/actions/workflows/ci.yml)
 [![Code Climate](https://codeclimate.com/github/ghiculescu/text_splitters/badges/gpa.svg)](https://codeclimate.com/github/ghiculescu/text_splitters)
 
-TODO: Description of this gem goes here.
+Port of [langchain](https://github.com/hwchase17/langchain) text splitters to Ruby.
+
+So far only the `RecursiveCharacterTextSplitter` is implemented. PRs for others are welcome!
 
 ---
 
@@ -22,6 +24,22 @@ $ gem install text_splitters
 
 ```ruby
 require "text_splitters"
+```
+
+## Usage
+
+### `RecursiveCharacterTextSplitter`
+
+[Learn more about this splitter](https://langchain.readthedocs.io/en/latest/modules/indexes/examples/textsplitter.html#generic-recursive-text-splitting).
+
+```ruby
+text = "Madam Speaker, Madam Vice President, our First Lady and Second Gentleman. Members of Congress and the Cabinet. Justices of the Supreme Court. My fellow Americans."
+splitter = ::TextSplitters::RecursiveCharacterTextSplitter.new(chunk_size: 100, chunk_overlap: 20)
+
+output = splitter.split(text)
+
+output[0] # "Madam Speaker, Madam Vice President, our First Lady and Second Gentleman. Members of Congress and the Cabinet."
+output[1] # "and the Cabinet. Justices of the Supreme Court. My fellow Americans."
 ```
 
 ## Support
